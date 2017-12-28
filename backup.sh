@@ -20,7 +20,7 @@ s3name=$name.aes
 
 tar czf /tmp/$name  -C $DATA_PATH .
 
-output=$(/usr/local/bin/s3cmd put -m application/octet-stream $PARAMS /tmp/$s3name "$S3_PATH" 2>&1 | tr '\n' ';' )
+output=$(s3cmd put -m application/octet-stream $PARAMS /tmp/$s3name "$S3_PATH" 2>&1 | tr '\n' ';' )
 code=$?
 if [ $code ]; then
     result=ok
