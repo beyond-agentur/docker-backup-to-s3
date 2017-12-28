@@ -14,7 +14,7 @@ tarfile=restore.tgz
 
 #echo "Starting restore $S3_PATH/$s3obj to:$DATA_PATH" 
 
-output=$(/usr/local/bin/s3cmd sync $PARAMS "${S3_PATH}${s3obj}" $DATA_PATH 2>&1 | tr '\n' ';' )
+output=$(s3cmd sync $PARAMS "${S3_PATH}${s3obj}" $DATA_PATH 2>&1 | tr '\n' ';' )
 code=$?
 if [ $code ]; then
     result=ok
